@@ -14,6 +14,14 @@ const upload = multer({ dest: "uploads/" });
 const Internship = require("./Model/Internship"); // Adjust path if your model is in a different folder
 const Application = require("./Model/Application"); // Adjust path if your model is in a different folder
 
+app.use(
+  cors({
+    origin: "https://nullclass-internship.netlify.app",
+    methods: ["GET","POST","PUT","DELETE","OPTIONS"],
+    credentials: true,
+  })
+);
+
 // Simple random password generator
 function generateRandomPassword(length = 10) {
   const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -47,13 +55,6 @@ const authRoutes = require("./Routes/authRoutes"); // CommonJS
 const port = process.env.PORT || 5000;
 
 // ===== Middleware =====
-app.use(
-  cors({
-    origin: "https://nullclass-internship.netlify.app",
-    methods: ["GET","POST","PUT","DELETE","OPTIONS"],
-    credentials: true,
-  })
-);
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 
@@ -299,6 +300,9 @@ app.use("/api/internships", internshipRoutes);
 app.use("/api/posts", postRoutes);
 app.use("/api", subscriptionRoutes);
 app.use("/api/auth", authRoutes);
+
+app.options("*", cors()); // enable preflight for all routes
+
 
 // ===== MongoDB =====
 

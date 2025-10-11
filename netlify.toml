@@ -1,6 +1,6 @@
 [build]
-  base = "frontend"                 # directory containing frontend package.json
-  publish = "frontend/build"        # folder to serve
+  base = "internarea"                 # directory containing frontend package.json
+  publish = "internarea/build"        # folder to serve
   command = "npm run build"         # frontend build command
 
 [dev]

@@ -48,11 +48,11 @@ const forgotPassword = async (req, res) => {
     await user.save();
 
     // Link to frontend reset page
-    const resetLink = `http://localhost:3000/reset-password/${token}`;
+    const resetLink = `${process.env.FRONTEND_URL}/reset-password/${token}`;
 
     // Send email
     await transporter.sendMail({
-      from: `"Support" <bindukreddy1111@gmail.com>`,
+      from: `"Support" <${process.env.EMAIL}>`,
       to: user.email,
       subject: "Password Reset",
       html: `<p>Click the link below to reset your password. This link is valid for 15 minutes:</p>

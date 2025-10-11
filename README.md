@@ -86,10 +86,6 @@ npm run dev
 
 ---
 
-> ⚠️ **Important:** This card is for Stripe’s **test mode only**.
-
----
-
 ## 🧑‍💻 Author
 
 **Bindu K Reddy**

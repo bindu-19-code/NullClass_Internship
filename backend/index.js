@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
+const sgTransport = require("nodemailer-sendgrid");
 const crypto = require("crypto");
 const bcrypt = require("bcryptjs");
 const multer = require("multer");
@@ -26,17 +27,11 @@ function generateRandomPassword(length = 10) {
 // OTP store (in-memory)
 const otpStore = {};
 
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
-  auth: {
-    user: process.env.EMAIL,
-    pass: process.env.EMAIL_PASS,
-  },
-});
-
-
+const transporter = nodemailer.createTransport(
+  sgTransport({
+    apiKey: process.env.SENDGRID_API_KEY
+  })
+);
 
 // Models
 const User = require("./Model/User");

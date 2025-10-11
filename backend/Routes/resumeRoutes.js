@@ -4,6 +4,7 @@ const nodemailer = require("nodemailer");
 const router = express.Router();
 const multer = require("multer");
 const upload = multer({ dest: "uploads/" });
+const sgTransport = require("nodemailer-sendgrid");
 
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
@@ -11,13 +12,11 @@ const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 const otpStore = {};
 
 // Nodemailer transporter
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: "bindukreddy1111@gmail.com",
-    pass: process.env.EMAIL_PASS,
-  },
-});
+const transporter = nodemailer.createTransport(
+  sgTransport({
+    apiKey: process.env.SENDGRID_API_KEY
+  })
+);
 
 // ===== Send OTP =====
 router.post("/send-otp", async (req, res) => {

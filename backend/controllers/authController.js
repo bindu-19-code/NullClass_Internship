@@ -2,6 +2,7 @@ const User = require("../Model/User");
 const crypto = require("crypto");
 const nodemailer = require("nodemailer");
 const bcrypt = require("bcryptjs");
+const sgTransport = require("nodemailer-sendgrid");
 
 // In-memory store to limit daily reset requests (optional)
 const resetRequestMap = new Map();
@@ -17,13 +18,11 @@ function generatePassword(length = 10) {
 }
 
 // Setup Nodemailer transporter (once at top)
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.EMAIL,
-    pass: process.env.EMAIL_PASS,
-  },
-});
+const transporter = nodemailer.createTransport(
+  sgTransport({
+    apiKey: process.env.SENDGRID_API_KEY
+  })
+);
 
 
 // ====== FORGOT PASSWORD ======

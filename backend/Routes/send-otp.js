@@ -1,5 +1,6 @@
 import nodemailer from 'nodemailer';
 import crypto from 'crypto';
+const sgTransport = require("nodemailer-sendgrid");
 
 let otpStore = {}; // simple memory store, can use DB for production
 
@@ -11,10 +12,11 @@ export default async (req, res) => {
   otpStore[email] = otp;
 
   // send email
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: { user: "bindukreddy1111@gmail.com", pass: process.env.EMAIL_PASS },
-  });
+const transporter = nodemailer.createTransport(
+  sgTransport({
+    apiKey: process.env.SENDGRID_API_KEY
+  })
+);
 
   const mailOptions = {
     from: `"Support" <bindukreddy1111@gmail.com>`,

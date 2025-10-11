@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const bcrypt = require("bcryptjs");
 const nodemailer = require("nodemailer");
+const sgTransport = require("nodemailer-sendgrid");
 const User = require("../Model/User");
 const {
   forgotPassword,
@@ -12,14 +13,11 @@ const {
 const router = express.Router();
 
 // ===== Nodemailer transporter =====
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST, // e.g., smtp.mailtrap.io
-  port: process.env.SMTP_PORT, // e.g., 2525 or 587
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-});
+const transporter = nodemailer.createTransport(
+  sgTransport({
+    apiKey: process.env.SENDGRID_API_KEY
+  })
+);
 
 // ===== Password Generator =====
 function generatePassword(length = 10) {

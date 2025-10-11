@@ -11,6 +11,7 @@ const bcrypt = require("bcryptjs");
 const multer = require("multer");
 const upload = multer({ dest: "uploads/" });
 const Internship = require("./Model/Internship"); // Adjust path if your model is in a different folder
+const Application = require("./Model/Application"); // Adjust path if your model is in a different folder
 
 // Simple random password generator
 function generateRandomPassword(length = 10) {
@@ -274,6 +275,16 @@ app.post("/api/auth/login", async (req, res) => {
 app.get("/api/internships", async (req, res) => {
   const internships = await Internship.find(); // check this collection
   res.json(internships);
+});
+
+app.get("/api/application/user/:id", async (req, res) => {
+  const userId = req.params.id;
+  try {
+    const applications = await Application.find({ user: userId });
+    res.json(applications);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 });
 
 app.get("/", (req, res) => {

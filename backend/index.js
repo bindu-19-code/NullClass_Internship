@@ -10,6 +10,7 @@ const crypto = require("crypto");
 const bcrypt = require("bcryptjs");
 const multer = require("multer");
 const upload = multer({ dest: "uploads/" });
+const Internship = require("./Model/Internship"); // Adjust path if your model is in a different folder
 
 // Simple random password generator
 function generateRandomPassword(length = 10) {

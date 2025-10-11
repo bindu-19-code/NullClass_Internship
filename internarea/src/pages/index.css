@@ -1,0 +1,113 @@
+/* ===========================
+   src/index.css
+   Tailwind base + custom UI
+   =========================== */
+
+/* Tailwind base/components/utilities must come first */
+@import "tailwindcss/preflight";
+@tailwind utilities;
+
+/* ---------------------------
+   Design tokens (CSS vars)
+   --------------------------- */
+:root {
+  --ps-accent-from: #3b82f6; /* blue-500 */
+  --ps-accent-to:   #6d28d9; /* indigo-700 */
+  --ps-muted:       #6b7280; /* gray-500 */
+}
+
+/* ---------------------------
+   Custom components (ps-*)
+   --------------------------- */
+@layer components {
+  /* Card styles */
+  .ps-card {
+    @apply bg-white p-4 rounded-2xl shadow-sm;
+  }
+  .ps-card-strong {
+    @apply bg-white p-6 rounded-2xl shadow-md;
+  }
+
+  /* Primary action button */
+  .ps-btn-primary {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold text-white;
+    background: linear-gradient(90deg, var(--ps-accent-from), var(--ps-accent-to));
+    box-shadow: 0 6px 18px rgba(99,102,241,0.12);
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .ps-btn-primary:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 10px 26px rgba(99,102,241,0.16);
+  }
+
+  /* Ghost/secondary button */
+  .ps-btn-ghost {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-xl text-sm border border-gray-200 bg-white;
+    transition: background-color .12s ease, border-color .12s ease;
+  }
+  .ps-btn-ghost:hover {
+    @apply bg-gray-50 border-gray-300;
+  }
+
+  /* File upload label */
+  .ps-file-label {
+    @apply inline-flex items-center gap-2 px-3 py-2 rounded-xl border text-sm cursor-pointer select-none;
+    @apply bg-white border-gray-200;
+  }
+  .ps-file-label:hover { @apply bg-gray-50; }
+
+  /* Avatar */
+  .ps-avatar {
+    @apply h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center text-sm font-semibold text-gray-700;
+  }
+
+  /* Media (images/videos inside post) */
+  .ps-media {
+    @apply mt-3 rounded overflow-hidden;
+  }
+  .ps-media img, 
+  .ps-media video {
+    @apply w-full h-auto max-h-80 object-cover rounded;
+  }
+
+  /* Comment input */
+  .ps-comment-input {
+    @apply p-2 rounded border text-sm w-full;
+  }
+
+  /* Like/share counts */
+  .ps-count {
+    @apply text-sm text-gray-500;
+  }
+}
+
+/* ---------------------------
+   Utilities
+   --------------------------- */
+@layer utilities {
+  .ps-muted { @apply text-gray-500; }
+  .ps-small { @apply text-xs; }
+}
+
+/* Custom scrollbar */
+@layer utilities {
+  .ps-scrollbar::-webkit-scrollbar { width: 10px; height: 10px; }
+  .ps-scrollbar::-webkit-scrollbar-track { background: transparent; }
+  .ps-scrollbar::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.08); border-radius: 10px; }
+}
+
+/* ---------------------------
+   Responsive tweaks
+   --------------------------- */
+@media (max-width: 640px) {
+  .ps-card { @apply p-3; }
+  .ps-card-strong { @apply p-4; }
+}
+
+/* ---------------------------
+   Focus styles
+   --------------------------- */
+input:focus, 
+textarea:focus {
+  @apply outline-none ring-2 ring-indigo-200;
+}

@@ -152,7 +152,7 @@ app.post("/api/auth/reset-password/:token", async (req, res) => {
     }
 
     // Hash before saving
-    user.password = await bcrypt.hash(passwordToSet, 10);
+    user.password = passwordToSet;
     user.resetToken = undefined;
     user.resetTokenExpire = undefined;
 

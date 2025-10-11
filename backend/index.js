@@ -49,7 +49,8 @@ const port = process.env.PORT || 5000;
 // ===== Middleware =====
 app.use(
   cors({
-    origin: ["https://<your-netlify-site>.netlify.app"],
+    origin: "https://<your-netlify-site>.netlify.app",
+    methods: ["GET","POST","PUT","DELETE","OPTIONS"],
     credentials: true,
   })
 );

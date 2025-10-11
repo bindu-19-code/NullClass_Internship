@@ -130,22 +130,42 @@ app.post("/api/resume/create-payment-intent", async (req, res) => {
 });
 
 app.post("/api/auth/reset-password/:token", async (req, res) => {
-  const { token } = req.params;
-  const { newPassword, autoGenerate } = req.body;
+  try {
+    const { token } = req.params;
+    const { newPassword, autoGenerate } = req.body;
 
-  const user = await User.findOne({
-    resetToken: token,
-    resetTokenExpire: { $gt: Date.now() },
-  });
-  if (!user) return res.status(400).json({ message: "Invalid token" });
+    const user = await User.findOne({
+      resetToken: token,
+      resetTokenExpire: { $gt: Date.now() },
+    });
 
-  const passwordToSet = autoGenerate ? generateRandomPassword() : newPassword;
-  user.password = passwordToSet;
-  user.resetToken = undefined;
-  user.resetTokenExpire = undefined;
-  await user.save();
+    if (!user) return res.status(400).json({ message: "Invalid or expired token" });
 
-  res.json({ message: "Password reset successfully", password: autoGenerate ? passwordToSet : undefined });
+    let passwordToSet;
+
+    if (autoGenerate) {
+      passwordToSet = generateRandomPassword();
+    } else if (newPassword) {
+      passwordToSet = newPassword;
+    } else {
+      return res.status(400).json({ message: "Password is required" });
+    }
+
+    // Hash before saving
+    user.password = await bcrypt.hash(passwordToSet, 10);
+    user.resetToken = undefined;
+    user.resetTokenExpire = undefined;
+
+    await user.save();
+
+    res.json({
+      message: "Password reset successfully",
+      password: autoGenerate ? passwordToSet : undefined,
+    });
+  } catch (err) {
+    console.error("ResetPassword error:", err);
+    res.status(500).json({ message: "Server error" });
+  }
 });
 
 // 2️⃣ Verify OTP

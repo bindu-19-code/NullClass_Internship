@@ -314,6 +314,22 @@ app.get("/", (req, res) => {
   res.send("Backend is live!");
 });
 
+app.get("/api/auth/reset-password/:token", async (req, res) => {
+  const { token } = req.params;
+  try {
+    const user = await User.findOne({
+      resetToken: token,
+      resetTokenExpire: { $gt: Date.now() },
+    });
+    if (!user) return res.status(400).json({ message: "Invalid or expired token" });
+
+    res.json({ message: "Token valid" });
+  } catch (err) {
+    console.error("VerifyToken error:", err);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
 // ===== Routes =====
 app.use("/api/applications", applicationRoutes);
 app.use("/api/internships", internshipRoutes);

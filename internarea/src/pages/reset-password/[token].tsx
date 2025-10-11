@@ -43,7 +43,7 @@ const ResetPassword: React.FC = () => {
       const res = await axios.post(
         `https://nullclass-internship-1gk4.onrender.com/api/auth/reset-password/${token}`,
         {
-          password: autoPassword ? undefined : password, // send password only if not auto
+          newPassword: autoPassword ? undefined : password, // send password only if not auto
           autoGenerate: autoPassword,
         }
       );

@@ -270,13 +270,18 @@ app.post("/api/auth/login", async (req, res) => {
   }
 });
 
+app.get("/api/internships", async (req, res) => {
+  const internships = await Internship.find(); // check this collection
+  res.json(internships);
+});
+
 app.get("/", (req, res) => {
   res.send("Backend is live!");
 });
 
 // ===== Routes =====
-app.use("/api/application", applicationRoutes);
-app.use("/api/internship", internshipRoutes);
+app.use("/api/applications", applicationRoutes);
+app.use("/api/internships", internshipRoutes);
 app.use("/api/posts", postRoutes);
 app.use("/api", subscriptionRoutes);
 app.use("/api/auth", authRoutes);

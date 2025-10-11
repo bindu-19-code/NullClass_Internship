@@ -17,7 +17,7 @@ const RegisterPage: React.FC = () => {
     e.preventDefault();
     try {
       const normalizedEmail = email.trim().toLowerCase();
-      await axios.post("http://localhost:5000/api/auth/register", {
+      await axios.post("https://nullclass-internship-1gk4.onrender.com/api/auth/register", {
         name,
         email: normalizedEmail,
         password,

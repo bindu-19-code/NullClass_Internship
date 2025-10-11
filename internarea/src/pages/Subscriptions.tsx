@@ -35,7 +35,7 @@ function Subscriptions() {
     if (plan.price === 0) {
       // Free plan activation
       try {
-        await axios.post("http://localhost:5000/api/subscription/free", {
+        await axios.post("https://nullclass-internship-1gk4.onrender.com/api/subscription/free", {
           userId: user._id,
         });
         alert(t("free_plan_activated", { limit: plan.limit }));
@@ -48,7 +48,7 @@ function Subscriptions() {
 
     // Paid plan: create Stripe Checkout session
     try {
-      const res = await axios.post("http://localhost:5000/api/subscribe", {
+      const res = await axios.post("https://nullclass-internship-1gk4.onrender.com/api/subscribe", {
         userId: user._id,
         plan: plan.name.toLowerCase(),
       });

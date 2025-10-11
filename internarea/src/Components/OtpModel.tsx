@@ -11,7 +11,7 @@ const OtpModal: React.FC<OtpModalProps> = ({ email, onVerified }) => {
   const verifyOtp = async () => {
     if (!otp) return alert("Please enter the OTP");
 
-    const res = await fetch('http://localhost:5000/api/resume/verify-otp', {
+    const res = await fetch('https://nullclass-internship-1gk4.onrender.com/api/resume/verify-otp', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, otp })

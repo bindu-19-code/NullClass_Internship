@@ -21,7 +21,7 @@ const ResetPassword: React.FC = () => {
     const verifyToken = async () => {
       if (!currentToken) return;
       try {
-        await axios.get(`http://localhost:5000/api/auth/reset-password/${currentToken}`);
+        await axios.get(`https://nullclass-internship-1gk4.onrender.com/api/auth/reset-password/${currentToken}`);
         setValidToken(true);
       } catch {
         toast.error(t("resetPassword.invalidToken"));
@@ -41,7 +41,7 @@ const ResetPassword: React.FC = () => {
 
     try {
       const res = await axios.post(
-        `http://localhost:5000/api/auth/reset-password/${token}`,
+        `https://nullclass-internship-1gk4.onrender.com/api/auth/reset-password/${token}`,
         {
           password: autoPassword ? undefined : password, // send password only if not auto
           autoGenerate: autoPassword,

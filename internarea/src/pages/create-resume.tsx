@@ -36,7 +36,7 @@ function PaymentSection({ onPaymentSuccess }: { onPaymentSuccess: () => void }) 
 
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/api/resume/create-payment-intent",
+        "https://nullclass-internship-1gk4.onrender.com/api/resume/create-payment-intent",
         { amount: 50 * 100 } // ₹50
       );
 
@@ -96,7 +96,7 @@ export default function CreateResume() {
     if (!formData.email) return alert(t("resume.enterEmail"));
     setLoading(true);
     try {
-      await axios.post("http://localhost:5000/api/resume/send-otp", { email: formData.email });
+      await axios.post("https://nullclass-internship-1gk4.onrender.com/api/resume/send-otp", { email: formData.email });
       alert(t("resume.otpSent"));
       setOtpSent(true);
     } catch (err) {
@@ -111,7 +111,7 @@ export default function CreateResume() {
     if (!otp) return alert(t("resume.enterOtp"));
     setLoading(true);
     try {
-      await axios.post("http://localhost:5000/api/resume/verify-otp", {
+      await axios.post("https://nullclass-internship-1gk4.onrender.com/api/resume/verify-otp", {
         email: formData.email,
         otp,
       });
@@ -143,7 +143,7 @@ export default function CreateResume() {
     form.append("photo", photo);
 
     try {
-      await axios.post("http://localhost:5000/api/resume/save-resume", form, {
+      await axios.post("https://nullclass-internship-1gk4.onrender.com/api/resume/save-resume", form, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       alert(t("resume.uploadSuccess"));

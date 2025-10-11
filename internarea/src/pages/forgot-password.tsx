@@ -12,7 +12,7 @@ const ForgotPassword: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/auth/forgot-password", { email });
+      await axios.post("https://nullclass-internship-1gk4.onrender.com/api/auth/forgot-password", { email });
       alert(t("forgotPassword.linkSent"));
 
       // Redirect to a "link sent" page

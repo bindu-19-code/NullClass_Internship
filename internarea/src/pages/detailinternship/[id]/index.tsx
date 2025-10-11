@@ -60,7 +60,7 @@ const Index: React.FC = () => {
 
     const fetchData = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/internship/${id}`);
+        const res = await axios.get(`https://nullclass-internship-1gk4.onrender.com/api/internship/${id}`);
         setInternship(res.data);
       } catch (err) {
         console.warn("Backend not reachable, using mock data");
@@ -109,7 +109,7 @@ const Index: React.FC = () => {
     try {
       // 1️⃣ Get user applications from backend
       const res = await axios.get(
-        `http://localhost:5000/api/application/user/${user.uid}`
+        `https://nullclass-internship-1gk4.onrender.com/api/application/user/${user.uid}`
       );
       const userApplications = res.data;
 
@@ -137,7 +137,7 @@ const Index: React.FC = () => {
         availability,
       };
 
-      await axios.post("http://localhost:5000/api/application", applicationData, {
+      await axios.post("https://nullclass-internship-1gk4.onrender.com/api/application", applicationData, {
         withCredentials: true,
       });
 

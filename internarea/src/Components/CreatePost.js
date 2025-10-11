@@ -7,7 +7,7 @@ export default function CreatePost({ onPost }) {
 
   const handlePost = async () => {
     try {
-      const res = await axios.post("http://localhost:5000/api/posts", {
+      const res = await axios.post("https://nullclass-internship-1gk4.onrender.com/api/posts", {
         userId: "USER_ID_HERE", // replace with logged-in user id
         content,
         mediaUrl

@@ -44,7 +44,7 @@ const Navbar: React.FC = () => {
       setOtpEmail(email);
       setLoading(true);
       try {
-        const sendRes = await fetch("http://localhost:5000/api/resume/send-otp", {
+        const sendRes = await fetch("https://nullclass-internship-1gk4.onrender.com/api/resume/send-otp", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email }),

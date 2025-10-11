@@ -49,7 +49,7 @@ router.post("/", async (req, res) => {
         },
       ],
       mode: "payment",
-      success_url: `http://localhost:5000/api/subscription/success?userId=${userId}&plan=${plan}`,
+      success_url: `https://nullclass-internship-1gk4.onrender.com/api/subscription/success?userId=${userId}&plan=${plan}`,
       cancel_url: "http://localhost:3000/subscription/cancel", // frontend cancel page
     });
 

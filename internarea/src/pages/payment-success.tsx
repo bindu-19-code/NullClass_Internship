@@ -33,7 +33,7 @@ const PaymentSuccess: React.FC = () => {
 
         // Fetch Stripe session info
         const { data: sessionData } = await axios.get(
-          `http://localhost:5000/api/stripe-session/${sessionStr}`
+          `https://nullclass-internship-1gk4.onrender.com/api/stripe-session/${sessionStr}`
         );
 
         const paymentInfo = {
@@ -43,7 +43,7 @@ const PaymentSuccess: React.FC = () => {
         };
 
         // Update backend
-        await axios.post("http://localhost:5000/api/payment-success", {
+        await axios.post("https://nullclass-internship-1gk4.onrender.com/api/payment-success", {
           userId,
           plan: planStr,
           paymentInfo,

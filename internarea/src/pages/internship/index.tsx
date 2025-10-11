@@ -37,7 +37,7 @@ const InternshipPage: React.FC = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/internship")
+      .get("https://nullclass-internship-1gk4.onrender.com/api/internship")
       .then((res) => {
         setInternships(res.data);
         setFiltered(res.data);
@@ -50,14 +50,14 @@ const InternshipPage: React.FC = () => {
 
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/application/user/${user._id}`
+        `https://nullclass-internship-1gk4.onrender.com/api/application/user/${user._id}`
       );
 
       if (res.data.length >= planLimits[user.plan]) {
         return alert(t("internshipPage.maxApplicationsReached", { plan: user.plan }));
       }
 
-      await axios.post("http://localhost:5000/api/application", {
+      await axios.post("https://nullclass-internship-1gk4.onrender.com/api/application", {
         userId: user._id,
         internshipId: internship._id,
         coverLetter: t("internshipPage.defaultCoverLetter"),
@@ -83,7 +83,7 @@ const InternshipPage: React.FC = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/subscribe",
+        "https://nullclass-internship-1gk4.onrender.com/api/subscribe",
         { userId: user._id, plan },
         { withCredentials: true }
       );

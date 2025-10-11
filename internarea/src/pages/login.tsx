@@ -16,7 +16,7 @@ const LoginPage: React.FC = () => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", {
+      const res = await axios.post("https://nullclass-internship-1gk4.onrender.com/api/auth/login", {
         email: email.trim().toLowerCase(),
         password,
         browser: browserName,

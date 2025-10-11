@@ -20,10 +20,11 @@ function generatePassword(length = 10) {
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "bindukreddy1111@gmail.com",  // your email
-    pass: process.env.EMAIL_PASS,        // app password
+    user: process.env.EMAIL,
+    pass: process.env.EMAIL_PASS,
   },
 });
+
 
 // ====== FORGOT PASSWORD ======
 const forgotPassword = async (req, res) => {
@@ -61,8 +62,8 @@ const forgotPassword = async (req, res) => {
 
     res.json({ message: "Reset link sent to your email!" });
   } catch (err) {
-    console.error("ForgotPassword error:", err);
-    res.status(500).json({ message: "Server error" });
+  console.error("ForgotPassword error:", err);
+  res.status(500).json({ message: err.message });
   }
 };
 

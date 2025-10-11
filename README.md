@@ -48,7 +48,7 @@
 
 ```bash
 git clone https://github.com/bindu-19-code/NullClass_Internship.git
-cd NullClass_Internship
+cd internshala-clone-main
 ```
 
 ### 2️⃣ Setup the backend

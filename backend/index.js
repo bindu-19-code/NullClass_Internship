@@ -111,7 +111,7 @@ app.post("/api/resume/send-otp", async (req, res) => {  // <-- make route async
 
 // backend / Express
 // POST /api/resume/create-payment-intent
-app.post("/api/resume/create-payment-intent", async (req, res) => {
+app.post("/api/resumes/create-payment-intent", async (req, res) => {
   try {
     const { amount = 50 * 100 } = req.body; // Rs 50 in paise
     const paymentIntent = await stripe.paymentIntents.create({
@@ -146,7 +146,7 @@ app.post("/api/auth/reset-password/:token", async (req, res) => {
 });
 
 // 2️⃣ Verify OTP
-app.post("/api/resume/verify-otp", (req, res) => {
+app.post("/api/resumes/verify-otp", (req, res) => {
   const { email, otp } = req.body;
   const record = otpStore[email];
   if (!record) return res.status(400).json({ message: "No OTP found" });
@@ -159,7 +159,7 @@ app.post("/api/resume/verify-otp", (req, res) => {
 
 
 // 4️⃣ Save Resume after payment
-app.post("/api/resume/save-resume", upload.single("photo"), async (req, res) => {
+app.post("/api/resumes/save-resume", upload.single("photo"), async (req, res) => {
   try {
     const { studentId, name, qualification, experience, email, phone } = req.body;
 

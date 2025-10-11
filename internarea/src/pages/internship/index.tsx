@@ -37,7 +37,7 @@ const InternshipPage: React.FC = () => {
 
   useEffect(() => {
     axios
-      .get("https://nullclass-internship-1gk4.onrender.com/api/internship")
+      .get("https://nullclass-internship-1gk4.onrender.com/api/internships")
       .then((res) => {
         setInternships(res.data);
         setFiltered(res.data);

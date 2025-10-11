@@ -49,7 +49,7 @@ const port = process.env.PORT || 5000;
 // ===== Middleware =====
 app.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: ["https://<your-netlify-site>.netlify.app"],
     credentials: true,
   })
 );
@@ -267,6 +267,10 @@ app.post("/api/auth/login", async (req, res) => {
     console.error(err);
     res.status(500).json({ error: "Login failed" });
   }
+});
+
+app.get("/", (req, res) => {
+  res.send("Backend is live!");
 });
 
 // ===== Routes =====

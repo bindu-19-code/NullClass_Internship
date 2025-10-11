@@ -86,17 +86,6 @@ npm run dev
 
 ---
 
-## 🧪 Testing Payments
-
-To test Stripe payments, use:
-
-```
-Card Number: 4242 4242 4242 4242
-Expiry: 12/34
-CVC: 123
-ZIP: 10000
-```
-
 > ⚠️ **Important:** This card is for Stripe’s **test mode only**.
 
 ---

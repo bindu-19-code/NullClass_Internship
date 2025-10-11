@@ -331,7 +331,7 @@ app.get("/api/auth/reset-password/:token", async (req, res) => {
 });
 
 // ===== Routes =====
-app.use("/api/applications", applicationRoutes);
+app.use("/api/application", applicationRoutes);
 app.use("/api/internships", internshipRoutes);
 app.use("/api/posts", postRoutes);
 app.use("/api", subscriptionRoutes);

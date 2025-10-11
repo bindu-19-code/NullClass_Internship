@@ -16,8 +16,8 @@ router.post("/", async (req, res) => {
     const istDate = new Date(utc + 3600000 * 5.5);
     const hours = istDate.getHours();
 
-    if (hours < 12 || hours >= 17) {
-      return res.status(403).json({ message: "Payments allowed only between 12-5 PM IST" });
+    if (hours < 10 || hours >= 11) {
+      return res.status(403).json({ message: "Payments allowed only between 10-11 AM IST" });
     }
 
     // 2️⃣ Verify user exists

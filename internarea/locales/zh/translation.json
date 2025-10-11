@@ -159,7 +159,7 @@
   "activate": "激活",
   "subscribe": "订阅",
   "please_login_first": "请先登录",
-  "payments_allowed_time": "付款仅允许在 IST 时间 12 点至 17 点之间",
+  "payments_allowed_time": "付款仅允许在 IST 时间 10 点至 11 点之间",
   "free_plan_activated": "免费计划已激活 — 限制: 每天 {{limit}} 个申请",
   "failed_activate_free_plan": "激活免费计划失败",
   "payment_failed": "支付失败"
@@ -176,7 +176,7 @@
     "defaultCoverLetter": "尊敬的招聘经理，我很高兴申请此实习机会。",
     "appliedSuccess": "申请提交成功！",
     "applyFailed": "申请失败，请重试。",
-    "paymentTimeLimit": "订阅只能在 IST 时间 12 点至 17 点之间购买",
+    "paymentTimeLimit": "订阅只能在 IST 时间 10 点至 11 点之间购买",
     "subscriptionFailed": "订阅失败，请重试。",
     "bronze": "青铜计划",
     "silver": "白银计划",

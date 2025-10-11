@@ -21,13 +21,13 @@ function Subscriptions() {
       return;
     }
 
-    // ⏰ Time restriction: 12–5 PM IST
+    // ⏰ Time restriction: 10–11 AM IST
     const now = new Date();
     const utc = now.getTime() + now.getTimezoneOffset() * 60000;
     const ist = new Date(utc + 5.5 * 3600000);
     const hour = ist.getHours();
 
-    if (hour < 12 || hour >= 17) {
+    if (hour < 10 || hour >= 11) {
       alert(t("payments_allowed_time"));
       return;
     }

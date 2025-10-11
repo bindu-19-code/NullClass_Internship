@@ -70,7 +70,7 @@ const plans = {
 };
 
 // ===== Payment Window =====
-const isPaymentAllowed = (startHour = 12, endHour = 17) => {
+const isPaymentAllowed = (startHour = 10, endHour = 11) => {
   const now = new Date();
   const utcMillis = now.getTime() + now.getTimezoneOffset() * 60000;
   const istOffset = 5.5 * 60 * 60 * 1000;
@@ -190,7 +190,7 @@ app.post("/api/subscribe", async (req, res) => {
     const { userId, plan } = req.body;
     if (!plans[plan]) return res.status(400).json({ message: "Invalid plan" });
     if (!isPaymentAllowed())
-      return res.status(403).json({ message: "Payments allowed only 12–17 PM IST" });
+      return res.status(403).json({ message: "Payments allowed only 10–11 AM IST" });
 
     const planData = plans[plan];
     const session = await stripe.checkout.sessions.create({

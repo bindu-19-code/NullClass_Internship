@@ -159,7 +159,7 @@
   "activate": "Activer",
   "subscribe": "S'abonner",
   "please_login_first": "Veuillez vous connecter d'abord",
-  "payments_allowed_time": "Les paiements sont autorisés uniquement entre 12h et 17h IST",
+  "payments_allowed_time": "Les paiements sont autorisés uniquement entre 10h et 11h IST",
   "free_plan_activated": "Plan gratuit activé — limite : {{limit}} applications/jour",
   "failed_activate_free_plan": "Échec de l'activation du plan gratuit",
   "payment_failed": "Échec du paiement"
@@ -176,7 +176,7 @@
     "defaultCoverLetter": "Cher Responsable du recrutement, je suis ravi(e) de postuler pour ce stage.",
     "appliedSuccess": "Candidature soumise avec succès !",
     "applyFailed": "Échec de la candidature. Veuillez réessayer.",
-    "paymentTimeLimit": "Les abonnements ne peuvent être achetés qu'entre 12h et 17h IST",
+    "paymentTimeLimit": "Les abonnements ne peuvent être achetés qu'entre 10h et 11h IST",
     "subscriptionFailed": "Échec de l'abonnement. Veuillez réessayer.",
     "bronze": "Plan Bronze",
     "silver": "Plan Argent",

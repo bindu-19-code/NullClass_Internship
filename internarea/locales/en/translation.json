@@ -163,7 +163,7 @@
     "defaultCoverLetter": "Dear Hiring Manager, I am excited to apply for this internship.",
     "appliedSuccess": "Application submitted successfully!",
     "applyFailed": "Failed to apply. Please try again.",
-    "paymentTimeLimit": "Subscriptions can only be purchased between 12 PM and 5 PM IST",
+    "paymentTimeLimit": "Subscriptions can only be purchased between 10 AM and 11 AM IST",
     "subscriptionFailed": "Subscription failed. Please try again.",
     "bronze": "Bronze Plan",
     "silver": "Silver Plan",
@@ -269,7 +269,7 @@
   "activate": "Activate",
   "subscribe": "Subscribe",
   "please_login_first": "Please login first",
-  "payments_allowed_time": "Payments are allowed only between 12 PM and 5 PM IST",
+  "payments_allowed_time": "Payments are allowed only between 10 AM and 11 AM IST",
   "free_plan_activated": "Free plan activated — limit: {{limit}} applications/day",
   "failed_activate_free_plan": "Failed to activate free plan",
   "payment_failed": "Payment failed"

@@ -78,7 +78,7 @@ const InternshipPage: React.FC = () => {
     const utc = now.getTime() + now.getTimezoneOffset() * 60000;
     const ist = new Date(utc + 5.5 * 3600000);
 
-    if (ist.getHours() < 12 || ist.getHours() >= 17)
+    if (ist.getHours() < 10 || ist.getHours() >= 11)
       return alert(t("internshipPage.paymentTimeLimit"));
 
     try {

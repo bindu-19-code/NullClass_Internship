@@ -152,7 +152,7 @@
   "activate": "Activar",
   "subscribe": "Suscribirse",
   "please_login_first": "Por favor, inicia sesión primero",
-  "payments_allowed_time": "Los pagos solo se permiten entre 12 PM y 5 PM IST",
+  "payments_allowed_time": "Los pagos solo se permiten entre 10 AM y 11 AM IST",
   "free_plan_activated": "Plan gratuito activado — límite: {{limit}} aplicaciones/día",
   "failed_activate_free_plan": "Error al activar el plan gratuito",
   "payment_failed": "Pago fallido"
@@ -169,7 +169,7 @@
     "defaultCoverLetter": "Estimado/a Gerente de Contratación, estoy emocionado/a de postularme a esta práctica.",
     "appliedSuccess": "¡Solicitud enviada con éxito!",
     "applyFailed": "Error al aplicar. Por favor, inténtelo de nuevo.",
-    "paymentTimeLimit": "Las suscripciones solo se pueden comprar entre las 12 PM y 5 PM IST",
+    "paymentTimeLimit": "Las suscripciones solo se pueden comprar entre las 10 AM y 11 AM IST",
     "subscriptionFailed": "La suscripción falló. Por favor, inténtelo de nuevo.",
     "bronze": "Plan Bronce",
     "silver": "Plan Plata",

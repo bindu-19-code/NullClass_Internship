@@ -159,7 +159,7 @@
   "activate": "Ativar",
   "subscribe": "Assinar",
   "please_login_first": "Por favor, faça login primeiro",
-  "payments_allowed_time": "Pagamentos permitidos apenas entre 12h e 17h IST",
+  "payments_allowed_time": "Pagamentos permitidos apenas entre 10h e 11h IST",
   "free_plan_activated": "Plano gratuito ativado — limite: {{limit}} aplicações/dia",
   "failed_activate_free_plan": "Falha ao ativar o plano gratuito",
   "payment_failed": "Falha no pagamento"
@@ -176,7 +176,7 @@
     "defaultCoverLetter": "Prezado(a) Gerente de Contratação, estou animado(a) para me candidatar a este estágio.",
     "appliedSuccess": "Aplicação enviada com sucesso!",
     "applyFailed": "Falha ao se candidatar. Por favor, tente novamente.",
-    "paymentTimeLimit": "As assinaturas só podem ser compradas entre 12 PM e 5 PM IST",
+    "paymentTimeLimit": "As assinaturas só podem ser compradas entre 10 AM e 11 AM IST",
     "subscriptionFailed": "Falha na assinatura. Por favor, tente novamente.",
     "bronze": "Plano Bronze",
     "silver": "Plano Prata",

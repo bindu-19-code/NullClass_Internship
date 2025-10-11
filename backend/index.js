@@ -27,12 +27,15 @@ function generateRandomPassword(length = 10) {
 const otpStore = {};
 
 const transporter = nodemailer.createTransport({
-  service: "gmail", // or another email service
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
   auth: {
-    user: "bindukreddy1111@gmail.com",
-    pass: "sqhq eabf uquo wnec", // app password for Gmail
+    user: process.env.EMAIL,
+    pass: process.env.EMAIL_PASS,
   },
 });
+
 
 
 // Models
@@ -90,6 +93,10 @@ app.post("/api/resume/send-otp", async (req, res) => {  // <-- make route async
   try {
     const { email } = req.body;
     if (!email) return res.status(400).json({ message: "Email required" });
+
+    console.log("📩 Sending OTP to:", email);
+    console.log("EMAIL_USER:", process.env.EMAIL);
+    console.log("APP_PASSWORD exists:", !!process.env.EMAIL_PASS);
 
     const otp = Math.floor(100000 + Math.random() * 900000);
     otpStore[email] = { otp, expires: Date.now() + 5 * 60 * 1000 }; // 5 min
